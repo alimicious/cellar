@@ -2,7 +2,7 @@
 
 From nothing to playing a Windows Steam game in about 15 minutes. Back to the [README](../README.md).
 
-**The short version:** install Rosetta → install Cellar → **Runtimes** → download **Wine Staging** → **⌘N**: make a bottle on Wine Staging → **Install Steam** → sign in → install a game → **Play**.
+**The short version:** install Rosetta → install Cellar → **Runtimes** → download **Wine with D3DMetal** (Wine Staging on an Intel Mac) → **⌘N**: make a bottle on it → **Install Steam** → sign in → install a game → **Play**.
 
 ## Contents
 1. [Before you start](#before-you-start)
@@ -27,7 +27,7 @@ From nothing to playing a Windows Steam game in about 15 minutes. Back to the [R
 | macOS 26 or later | Cellar uses macOS 26's Liquid Glass design |
 | A Mac with Apple silicon | Recommended. Intel Macs can use the Wine Staging runtime only |
 | Rosetta 2 | Wine and Windows games are Intel code |
-| About 3 GB free, plus room for games | Wine Staging is 703 MB unpacked, a bottle about 335 MB, Steam about 1.8 GB. The Game Porting Toolkit, if you add it, is another 780 MB |
+| About 4 GB free, plus room for games | Wine with D3DMetal is 1.3 GB unpacked (Wine Staging 703 MB), a bottle about 335 MB, Steam about 1.8 GB. The Game Porting Toolkit, if you add it, is another 780 MB |
 
 **Won't work:** games with kernel-level anti-cheat, such as Valorant, Fortnite, and many online shooters and battle royales. No translation layer can run them.
 
@@ -48,36 +48,36 @@ softwareupdate --install-rosetta --agree-to-license
 ## 3. Get a runtime
 
 1. Click the **Runtimes** button in the dock at the bottom-left of the sidebar.
-2. Click **Download** on the runtime you need. You can have both.
-3. Wait for the download, then **Unpacking…**, then **✓ Installed**. On a fast connection that's under a minute.
+2. Click **Download** on the runtime you need. You can have more than one. For **Wine with D3DMetal**, Cellar first asks you to accept Apple's licence for D3DMetal, which it downloads alongside.
+3. Wait for the download, then **Unpacking…**, then **✓ Installed**. On a fast connection that's a minute or two.
 
-| | **Wine Staging** (184 MB) | **Game Porting Toolkit** (228 MB) |
-|---|---|---|
-| **Steam** | ✅ Use this one | ❌ The current Steam client crashes on it |
-| DirectX 11 games | ✅ through DXVK | ✅ through D3DMetal, faster |
-| DirectX 12 games | ❌ No good path yet | ✅ through D3DMetal |
-| DirectX 9 and older games, regular apps | ✅ | ✅ |
-| Macs | Apple silicon and Intel | Apple silicon only |
-| Best for | **Steam** and its games | Games from installers (GOG, standalone) |
+| | **Wine with D3DMetal** (554 MB) | **Wine Staging** (184 MB) | **Game Porting Toolkit** (228 MB) |
+|---|---|---|---|
+| **Steam** | ✅ | ✅ | ❌ The current Steam client crashes on it |
+| DirectX 11 games | ✅ through D3DMetal | ✅ through DXVK | ✅ through D3DMetal |
+| DirectX 12 games | ✅ through D3DMetal 4.0 (beta) | ❌ No good path | ✅ through D3DMetal 3.0 |
+| DirectX 9 and older games, regular apps | ✅ | ✅ | ✅ |
+| Macs | Apple silicon only | Apple silicon and Intel | Apple silicon only |
+| Best for | **Steam** and its games, DirectX 12 | Steam on Intel Macs, older games | Games from installers, without Steam |
 
 ## 4. Create a bottle
 
 1. Press **⌘N**, or click **+** in the dock (⌘K) and pick **New Bottle**.
-2. Name it (for example "Steam"), choose **Wine Staging** for Steam, keep **Windows 10**, then click **Create**.
-3. Wait until **Setting up Windows…** goes away, about 25 seconds.
+2. Name it (for example "Steam"), choose **Wine with D3DMetal** for Steam (**Wine Staging** on an Intel Mac), keep **Windows 10**, then click **Create**.
+3. Wait until **Setting up Windows…** goes away: about a minute and a half with Wine with D3DMetal, 25 seconds with Wine Staging.
 
 **What's a bottle?** A separate Windows install with its own C: drive and settings. One bottle can hold Steam and all its games. Give launchers (Epic, EA, Battle.net) and any game that needs special settings a bottle of their own. Bottles are listed in the sidebar.
 
 ## 5. Install your games
 
-### From Steam (in a Wine Staging bottle)
+### From Steam (in a Wine with D3DMetal or Wine Staging bottle)
 1. Click **Install Steam** on the bottle's page, or **+** in the dock → **Install Steam**. Cellar then:
    - installs Steam
    - lets it update itself (about 330 MB, a few minutes, shown as **Updating Steam…**)
    - puts in the fix that lets Steam's windows draw
    - pins Steam to the bottle
 2. Open **Steam**, sign in (the QR code with the Steam mobile app works, and Steam Guard may ask you to confirm a new device), then install games as you would on Windows.
-3. Play from Steam. Multiplayer and lobbies work.
+3. Play from Steam. Multiplayer and lobbies work. The first time you play a game, Steam may show **Running install script** for about a minute while it installs Visual C++ and DirectX for it.
 
 > **Always open Steam from Cellar.** Steam's updates undo the fix that lets its windows draw. Cellar puts it back every time it opens Steam, so open Steam from Cellar, not from anywhere else.
 
@@ -130,7 +130,7 @@ On each bottle's page, under **Settings**. They apply the next time a program st
 | Command as Control | ⌘C, ⌘V and the other ⌘ shortcuts work in Windows programs, and Option works as Alt | On |
 | Advertise AVX | For newer games that won't start without AVX | Off |
 | **DXVK** (Wine Staging) | DirectX 10 and 11 through DXVK. Needed for DirectX 11 games | **On** |
-| Ray tracing (Game Porting Toolkit) | DirectX 12 ray tracing through D3DMetal, M3 or later | Off |
+| Ray tracing (Wine with D3DMetal, Game Porting Toolkit) | DirectX 12 ray tracing through D3DMetal, M3 or later | Off |
 
 ## Updating Cellar
 
@@ -148,10 +148,10 @@ Try these in order.
 | Symptom | Try |
 |---|---|
 | Steam's window is black | **Wine Tools → Stop All Windows Programs**, then open Steam from Cellar again |
-| Steam opens for a few seconds, then closes | The bottle uses the Game Porting Toolkit. Make a **Wine Staging** bottle for Steam |
+| Steam opens for a few seconds, then closes | The bottle uses the Game Porting Toolkit. Make a **Wine with D3DMetal** bottle for Steam (**Wine Staging** on an Intel Mac) |
 | "Failed to load steamui.dll" | Steam's first update never ran. Click OK, **Wine Tools → Stop All Windows Programs**, then open Steam from Cellar: it finishes the update before Steam opens (1.2.1 and later) |
 | "Failed to initialize graphics" or a DirectX 11 error (Wine Staging) | Check **DXVK** is on in the bottle's settings |
-| DirectX 12 game won't start (Wine Staging) | Launch Options `-dx11` if the game has it. Otherwise it needs a Game Porting Toolkit bottle, without Steam |
+| DirectX 12 game won't start (Wine Staging) | Make a **Wine with D3DMetal** bottle, install Steam there and play it from that bottle. Some games also run with Launch Options `-dx11` |
 | Microphone doesn't work | Allow it when macOS asks. If you clicked Don't Allow: **System Settings → Privacy & Security → Microphone → Cellar** on, then restart the game |
 | Sound comes out of the speakers with headphones on | Connect headphones before opening Steam or the game, or quit and reopen it after switching |
 | Closes right away | Turn on **Advertise AVX** |

@@ -2,6 +2,19 @@
 
 Downloads are on the [releases page](https://github.com/alimicious/cellar/releases). Versions before 1.2.4 were shared directly and aren't published here.
 
+## 1.5.0 (2026-10-29)
+- **New runtime: Wine with D3DMetal.** It runs **Steam** together with Apple's **D3DMetal**, for DirectX 11 and **DirectX 12**. Before, you had to pick one: the Game Porting Toolkit had D3DMetal but couldn't run Steam, and Wine Staging ran Steam but had no good DirectX 12.
+  - **Persona 3 Reload**, which crashed at start-up before, now plays from Steam's Play button. About 86 fps on average at its default settings on an M4 Pro.
+  - Download it under **Runtimes** (554 MB, Apple silicon). Cellar asks you to accept Apple's D3DMetal licence first, then downloads D3DMetal 4.0 beta 3 alongside.
+  - It's dappermint's build of Wine 11.19 with CodeWeavers' open-source CrossOver changes, which D3DMetal needs. Both downloads are checked against fixed checksums.
+- **Steam** works in the new runtime just like in Wine Staging: **Install Steam**, sign in, play.
+- **The launch doctor** points DirectX 12 games that fail in Wine Staging to the new runtime.
+
+## 1.4.0 (2026-10-29)
+- **32-bit games get further.** Older games like Left 4 Dead 2 used to hang with no window. In Wine Staging bottles, DirectX 9 now draws through OpenGL, and Steam's overlay is off in 32-bit games (64-bit games keep it).
+- **Updating from the wrong place:** if Cellar was opened straight from where it was unzipped, it now says to move it into Applications first, instead of a "read only" error.
+- **Known issue:** 32-bit games still often crash or hang at start on macOS 27, because of how Rosetta switches between 32- and 64-bit code.
+
 ## 1.3.1 (2026-10-29)
 - **Performance notices.** While a game plays, Cellar tells you what's costing it frames, and what to do about it:
   - **Retina mode** is on for the game. It draws up to four times the pixels
