@@ -2,6 +2,12 @@
 
 Downloads are on the [releases page](https://github.com/alimicious/cellar/releases). Versions before 1.2.4 were shared directly and aren't published here.
 
+## 1.5.1 (2026-10-29)
+- **Persona 3 Reload still crashing after the update?** Updating Cellar doesn't change bottles you already have, so a game in a Wine Staging bottle still crashes. Cellar now says so when a DirectX 12 game crashes in a bottle that can't run it, and shows four steps, each with its button: download **Wine with D3DMetal**, make a new bottle on it, install Steam there and sign in, install the game there and press Play.
+- **Copy It Over** brings an installed Steam game across from the old bottle instead of downloading it again. It's an APFS copy: instant, with no extra disk space.
+- A Wine Staging bottle with Persona 3 Reload installed says so on its page, with **Show Steps**.
+- The launch doctor no longer suggests `-dx11` for games that ignore it.
+
 ## 1.5.0 (2026-10-29)
 - **New runtime: Wine with D3DMetal.** It runs **Steam** together with Apple's **D3DMetal**, for DirectX 11 and **DirectX 12**. Before, you had to pick one: the Game Porting Toolkit had D3DMetal but couldn't run Steam, and Wine Staging ran Steam but had no good DirectX 12.
   - **Persona 3 Reload**, which crashed at start-up before, now plays from Steam's Play button. About 86 fps on average at its default settings on an M4 Pro.

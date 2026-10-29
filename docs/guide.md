@@ -151,7 +151,8 @@ Try these in order.
 | Steam opens for a few seconds, then closes | The bottle uses the Game Porting Toolkit. Make a **Wine with D3DMetal** bottle for Steam (**Wine Staging** on an Intel Mac) |
 | "Failed to load steamui.dll" | Steam's first update never ran. Click OK, **Wine Tools → Stop All Windows Programs**, then open Steam from Cellar: it finishes the update before Steam opens (1.2.1 and later) |
 | "Failed to initialize graphics" or a DirectX 11 error (Wine Staging) | Check **DXVK** is on in the bottle's settings |
-| DirectX 12 game won't start (Wine Staging) | Make a **Wine with D3DMetal** bottle, install Steam there and play it from that bottle. Some games also run with Launch Options `-dx11` |
+| DirectX 12 game won't start (Wine Staging) | Make a **Wine with D3DMetal** bottle, install Steam there and play it from that bottle. From 1.5.1 Cellar shows these steps, and **Copy It Over** brings an installed Steam game across without downloading it again. Some games also run with Launch Options `-dx11`, but not Persona 3 Reload |
+| Persona 3 Reload still crashes after updating Cellar | Updating doesn't change existing bottles: one made with Wine Staging stays on it. Follow the row above |
 | Microphone doesn't work | Allow it when macOS asks. If you clicked Don't Allow: **System Settings → Privacy & Security → Microphone → Cellar** on, then restart the game |
 | Sound comes out of the speakers with headphones on | Connect headphones before opening Steam or the game, or quit and reopen it after switching |
 | Closes right away | Turn on **Advertise AVX** |

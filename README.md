@@ -80,7 +80,7 @@ You can install both, and give each bottle the runtime that suits it.
 | Worst Class Ever (demo) | Unity, DirectX 11 (DXVK) | ✅ Runs from Steam, including **multiplayer lobbies** |
 | Left 4 Dead 2 | Source, DirectX 9 | ✅ Runs from Steam |
 | Scam With Your Friends | Unity 6, DirectX 11 (DXVK), voice AI on the CPU | ✅ Runs. About **60 fps in game on Low** on an M4 Pro. Heavy on graphics, so start on Low. Uses the microphone |
-| Persona 3 Reload | Unreal Engine 4, DirectX 12 only (D3DMetal) | ✅ Runs from Steam in a **Wine with D3DMetal** bottle. About **86 fps** on average at its default settings on an M4 Pro. Crashes at start-up in Wine Staging |
+| Persona 3 Reload | Unreal Engine 4, DirectX 12 only (D3DMetal) | ✅ Runs from Steam in a **Wine with D3DMetal** bottle. About **86 fps** on average at its default settings on an M4 Pro. Crashes at start-up in Wine Staging, including bottles made before 1.5.0 |
 
 **Won't run:** games with kernel-level anti-cheat, such as Valorant, Fortnite, and many online shooters and battle royales. No translation layer can run them.
 
@@ -117,7 +117,8 @@ Everything else, like Steam itself and your games, talks to its own servers as i
 |---|---|
 | Steam's window is black | **Wine Tools → Stop All Windows Programs**, then open Steam from Cellar again |
 | Steam opens for a few seconds, then closes | The bottle uses the Game Porting Toolkit. Make a **Wine with D3DMetal** bottle for Steam (**Wine Staging** on an Intel Mac) |
-| A DirectX 12 game won't start, or says DX12 isn't supported | It's in a Wine Staging bottle. Make a **Wine with D3DMetal** bottle, install Steam there and play it from that bottle |
+| A DirectX 12 game won't start, or says DX12 isn't supported | It's in a Wine Staging bottle. Make a **Wine with D3DMetal** bottle, install Steam there and play it from that bottle. Cellar 1.5.1 and later shows these steps when it happens |
+| Persona 3 Reload still crashes after updating ("An Unreal process has crashed") | Updating Cellar doesn't change bottles you already have, so your Wine Staging bottle still can't run it. Download **Wine with D3DMetal** in Runtimes, make a new bottle with it, install Steam there and sign in. Then install the game there, or use **Copy It Over** on Cellar's card to bring it across without downloading 21 GB again |
 | Play sits on "Running install script" | Normal the first time: Steam installs Visual C++ and DirectX for the game. It takes about a minute |
 | "Failed to load steamui.dll" | **Stop All Windows Programs**, then open Steam from Cellar. It finishes Steam's update first |
 | "Failed to initialize graphics" (Wine Staging) | Check **DXVK** is on in the bottle's settings |
