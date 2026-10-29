@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/alimicious/cellar-releases/releases/latest"><strong>Download the latest version</strong></a>
+  <a href="https://github.com/alimicious/cellar/releases/latest"><strong>Download the latest version</strong></a>
   &nbsp;·&nbsp; <a href="docs/guide.md">Setup guide</a>
   &nbsp;·&nbsp; <a href="CHANGELOG.md">What's new</a>
 </p>
@@ -24,7 +24,12 @@
 - **Runs the current Windows Steam client:** sign-in, library, downloads, multiplayer and lobbies. **Install Steam** sets it up in one click, along with the fixes Steam needs to run on a Mac.
 - **Runs DirectX 11 games** through DXVK, or through Apple's D3DMetal with the Game Porting Toolkit runtime.
 - **Shows your games as covers.** Steam games get their box art, and everything else gets a cover made from its icon. Play, set launch options or pin a game from its cover.
-- **Per-bottle settings:** Windows version, MSync/ESync, Retina mode, Metal HUD, AVX, DXVK and ray tracing.
+- **Per-bottle settings:** Windows version, MSync/ESync, Retina mode, an FPS counter, ⌘ as Ctrl, AVX, DXVK and ray tracing.
+- **Game Settings for each game:** override any of those for one game, and add launch options like `-dx11`.
+- **Tells you why a game won't start:** Steam not running, AVX needed, Visual C++ missing, DirectX trouble or a crash, with a one-click fix. Games with kernel anti-cheat that can't run on a Mac get a badge.
+- **Playtime** for every game, counted even when you start it from Steam.
+- **Performance notices** while you play, when Retina mode, Low Power Mode, heat or low memory are costing frames.
+- **⌘C and ⌘V work** in Windows programs, and Option works as Alt.
 - **Wine tools in a menu:** Wine settings, registry editor, task manager, control panel, Windows Explorer, and Stop All.
 - **Updates itself.** From 1.2.5, **Update and Restart** installs new versions, which are signed so a tampered download is never installed.
 
@@ -40,7 +45,7 @@
 - **About 3 GB of free space** for Wine, a bottle and Steam, plus room for your games
 
 **Install:**
-1. Download **Cellar-x.y.z.zip** from the [latest release](https://github.com/alimicious/cellar-releases/releases/latest) and double-click it to unzip.
+1. Download **Cellar-x.y.z.zip** from the [latest release](https://github.com/alimicious/cellar/releases/latest) and double-click it to unzip.
 2. Drag **Cellar** into your **Applications** folder (choose **Replace** if you already have it) and open it.
 3. macOS says it can't verify the app, because Cellar isn't notarized by Apple. Click **Done**, then open **System Settings → Privacy & Security**, scroll down and click **Open Anyway**. You only do this once.
 
@@ -74,10 +79,11 @@ You can install both, and give each bottle the runtime that suits it.
 |---|---|---|
 | Worst Class Ever (demo) | Unity, DirectX 11 (DXVK) | ✅ Runs from Steam, including **multiplayer lobbies** |
 | Left 4 Dead 2 | Source, DirectX 9 | ✅ Runs from Steam |
+| Scam With Your Friends | Unity 6, DirectX 11 (DXVK), voice AI on the CPU | ✅ Runs. About **60 fps in game on Low** on an M4 Pro. Heavy on graphics, so start on Low. Uses the microphone |
 
 **Won't run:** games with kernel-level anti-cheat, such as Valorant, Fortnite, and many online shooters and battle royales. No translation layer can run them.
 
-Tried a game? Open an [issue](https://github.com/alimicious/cellar-releases/issues) with how it went, so this list can grow.
+Tried a game? Open an [issue](https://github.com/alimicious/cellar/issues) with how it went, so this list can grow.
 
 ## Updates
 
@@ -113,7 +119,8 @@ Everything else, like Steam itself and your games, talks to its own servers as i
 | "Failed to initialize graphics" (Wine Staging) | Check **DXVK** is on in the bottle's settings |
 | Microphone doesn't work | Allow it when macOS asks. Missed the prompt: **System Settings → Privacy & Security → Microphone → Cellar** |
 | Sound plays through the speakers with headphones on | Connect headphones **before** starting the game, or restart it after switching |
-| Game closes right away | Turn on **Advertise AVX** |
+| Game closes right away | Turn on **Advertise AVX**. Cellar usually tells you why a game quit |
+| Low frame rate | Set the game's own graphics to **Low** first. Then check the **While you play** notices, and turn on the **FPS counter** to see the difference |
 
 More in the [setup guide](docs/guide.md#if-a-game-wont-start).
 
@@ -129,7 +136,7 @@ More in the [setup guide](docs/guide.md#if-a-game-wont-start).
 
 **How do I uninstall it?** Quit Cellar, delete it from Applications, then delete `~/Library/Application Support/Cellar` (bottles and runtimes), `~/Library/Logs/Cellar` and `~/Library/Caches/Cellar`.
 
-**Reporting a bug?** Open an [issue](https://github.com/alimicious/cellar-releases/issues). Cellar's logs (**Wine Tools → Show Logs in Finder**) usually show what went wrong, but they contain file paths with your Mac's username, so check before you attach one.
+**Reporting a bug?** Open an [issue](https://github.com/alimicious/cellar/issues). Cellar's logs (**Wine Tools → Show Logs in Finder**) usually show what went wrong, but they contain file paths with your Mac's username, so check before you attach one.
 
 ## Credits and licences
 

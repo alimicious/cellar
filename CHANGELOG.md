@@ -1,6 +1,24 @@
 # What's new in Cellar
 
-Downloads are on the [releases page](https://github.com/alimicious/cellar-releases/releases). Versions before 1.2.4 were shared directly and aren't published here.
+Downloads are on the [releases page](https://github.com/alimicious/cellar/releases). Versions before 1.2.4 were shared directly and aren't published here.
+
+## 1.3.1 (2026-10-29)
+- **Performance notices.** While a game plays, Cellar tells you what's costing it frames, and what to do about it:
+  - **Retina mode** is on for the game. It draws up to four times the pixels
+  - **Low Power Mode** is on
+  - your Mac is **running hot** and slowing itself down
+  - your Mac is **short of memory** and swapping to disk
+
+  You get a notification while the game is in front, and a **While you play** panel in the bottle.
+- We benchmarked Cellar's graphics settings on a demanding DirectX 11 game, and none made a real difference. A game's own quality setting and the four things above decide the frame rate.
+
+## 1.3.0 (2026-10-29)
+- **Game Settings** for each game: Windows version, FPS counter, Retina mode, AVX, DXVK and launch options can follow the bottle or be set for that game alone. Find it under **⋯ Options** on the wheel.
+- **Playtime:** each game shows how long you've played it and when, even when you start it from Steam. The wheel opens on the game you played last.
+- **Anti-cheat badge** for games with EasyAntiCheat, BattlEye and similar, which can't run on a Mac.
+- **Launch doctor:** when a game quits as it starts, Cellar says why (Steam not running, AVX needed, Visual C++ missing, DirectX 11 or 12 trouble, a crash) and offers a one-click fix.
+- **Copy and paste:** ⌘C, ⌘V and the other ⌘ shortcuts work in Windows programs, and Option works as Alt.
+- **FPS counter:** the frame rate only, or the full Metal HUD. Press Shift-F9 in a game to hide or show it.
 
 ## 1.2.5 (2026-10-29)
 - **Cellar updates itself.** **Update and Restart** downloads the new version, checks its signature, installs it and reopens Cellar. Open games keep running, and macOS doesn't ask for **Open Anyway** again.

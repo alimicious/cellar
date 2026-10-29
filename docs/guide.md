@@ -41,7 +41,7 @@ softwareupdate --install-rosetta --agree-to-license
 
 ## 2. Install Cellar
 
-1. Download **Cellar-x.y.z.zip** from the [latest release](https://github.com/alimicious/cellar-releases/releases/latest) and unzip it.
+1. Download **Cellar-x.y.z.zip** from the [latest release](https://github.com/alimicious/cellar/releases/latest) and unzip it.
 2. Drag **Cellar** into **Applications** and open it.
 3. The first time, macOS says it can't check the app, because Cellar isn't notarized by Apple. Click **Done**, go to **System Settings → Privacy & Security**, scroll down, click **Open Anyway** next to Cellar, and confirm. You only do this once.
 
@@ -91,12 +91,17 @@ A bottle's programs are a wheel of covers: Steam games show their box art, every
 - **Pick a game:** click a cover, use the **‹ ›** buttons, or press **← →**.
 - **Start it:** **Play**, click the centred cover again, or press **Return**.
 - **More:** the **⋯ Options** button, or right-click a cover:
-  - **Launch Options…**, for example `-dx11` or `-windowed`
+  - **Game Settings…**: this game's own Windows version, Retina mode, FPS counter, AVX, DXVK and launch options (for example `-dx11` or `-windowed`)
   - **Pin to Top / Unpin**
   - **Show in Finder**
+- **Playtime:** under each game's title, how long you've played and when. It counts games started from Steam too, while Cellar is open.
 - **Search:** the search button in the dock (⌘F) filters the bottle's programs by name.
 
 While something runs, it's listed under **Running** with **Log** and **Quit**. **Stop All** closes everything in the bottle.
+
+**If a game quits as it starts,** Cellar says why and offers a fix when there is one. Games with kernel anti-cheat get a badge on their cover, because that anti-cheat can't run on a Mac.
+
+**While you play,** Cellar lets you know when Retina mode, Low Power Mode, heat or low memory are costing frames. It shows a notification while the game is in front, and a **While you play** panel in the bottle.
 
 **Microphone:** the first time a game or Steam uses it, macOS asks whether Cellar can use the microphone. Click **Allow**. Test it in **Steam → Settings → Voice → Test Microphone**.
 
@@ -121,7 +126,8 @@ On each bottle's page, under **Settings**. They apply the next time a program st
 | Windows version | The version programs see (10, 8.1, 7, XP) | Windows 10 |
 | Synchronization | MSync, ESync or Off. MSync is fastest on macOS | MSync |
 | Retina mode | Full display resolution: sharper, harder on the GPU | Off |
-| Metal performance HUD | Frame rate and GPU time over games | Off |
+| FPS counter | Apple's Metal HUD over games: the frame rate only, or everything it measures. Shift-F9 hides and shows it in a game | Off |
+| Command as Control | ⌘C, ⌘V and the other ⌘ shortcuts work in Windows programs, and Option works as Alt | On |
 | Advertise AVX | For newer games that won't start without AVX | Off |
 | **DXVK** (Wine Staging) | DirectX 10 and 11 through DXVK. Needed for DirectX 11 games | **On** |
 | Ray tracing (Game Porting Toolkit) | DirectX 12 ray tracing through D3DMetal, M3 or later | Off |
@@ -130,7 +136,7 @@ On each bottle's page, under **Settings**. They apply the next time a program st
 
 - **1.2.5 and later** update themselves. When there's a new version, a card offers **Update and Restart**. Cellar also checks once a day when it opens, and on **Cellar → Check for Updates…**.
 - Updates are signed, and Cellar checks the signature before installing anything. Open games keep running while Cellar restarts.
-- **1.2.4 and older:** download the [latest release](https://github.com/alimicious/cellar-releases/releases/latest), then drag the new **Cellar** into **Applications**, choosing **Replace**, and click **Open Anyway** once more.
+- **1.2.4 and older:** download the [latest release](https://github.com/alimicious/cellar/releases/latest), then drag the new **Cellar** into **Applications**, choosing **Replace**, and click **Open Anyway** once more.
 - Your bottles, runtimes, Steam and games stay where they are.
 
 ---
@@ -149,6 +155,7 @@ Try these in order.
 | Microphone doesn't work | Allow it when macOS asks. If you clicked Don't Allow: **System Settings → Privacy & Security → Microphone → Cellar** on, then restart the game |
 | Sound comes out of the speakers with headphones on | Connect headphones before opening Steam or the game, or quit and reopen it after switching |
 | Closes right away | Turn on **Advertise AVX** |
+| Low frame rate | Set the game's own graphics to **Low** first: it's the biggest win. Then check the **While you play** notices, and turn on the **FPS counter** to see the difference |
 | Hangs while starting | Set **Synchronization** to **Off** |
 | Old game complains about Windows | Set **Windows version** to **Windows 7** |
 | Blurry on a Retina display | Turn on **Retina mode** |
@@ -156,7 +163,7 @@ Try these in order.
 
 **Still stuck?** **Wine Tools → Show Logs in Finder**. Each run has a log, and the end of it usually says why it failed. Unity games also keep their own log in the bottle at `drive_c/users/<you>/AppData/LocalLow/<studio>/<game>/Player.log`.
 
-Reporting it? Open an [issue](https://github.com/alimicious/cellar-releases/issues) with the game, what happened, and the end of the log. Logs contain file paths with your Mac's username, so check before you attach one.
+Reporting it? Open an [issue](https://github.com/alimicious/cellar/issues) with the game, what happened, and the end of the log. Logs contain file paths with your Mac's username, so check before you attach one.
 
 ---
 
